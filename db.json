@@ -15,7 +15,7 @@
       "filmRating": "10",
       "filmSeason": "0",
       "filmSeries": "0",
-      "isWatched": true,
+      "isWatched": false,
       "id": "fqubmMpDaAg"
     },
     {
@@ -26,6 +26,33 @@
       "filmSeries": "0",
       "isWatched": false,
       "id": "s6s97R-5CCY"
+    },
+    {
+      "filmName": "Мистер робот",
+      "filmType": "serial",
+      "filmRating": "8",
+      "filmSeason": "2",
+      "filmSeries": "4",
+      "isWatched": true,
+      "id": "D2cINhYa5a0"
+    },
+    {
+      "filmName": "Стас ай как просто",
+      "filmType": "movie",
+      "filmRating": "10",
+      "filmSeason": "0",
+      "filmSeries": "0",
+      "isWatched": false,
+      "id": "Hm-fZwFUV10"
+    },
+    {
+      "filmName": "Гриффины",
+      "filmType": "cartoon",
+      "filmRating": "10",
+      "filmSeason": "0",
+      "filmSeries": "0",
+      "isWatched": true,
+      "id": "X4IcO0xwE3c"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

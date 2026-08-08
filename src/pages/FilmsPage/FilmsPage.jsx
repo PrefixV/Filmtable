@@ -1,6 +1,6 @@
 import {useEffect, useState, useContext} from "react";
 import {createFilm, getFilms, deleteFilm, toggleFilmWatch, editFilm} from "../../api/filmsApi.js";
-import FilmCard from "../../components/FilmCard.jsx";
+import FilmCard from "../../components/blocks/FilmCard.jsx";
 import UtilsForm from "../../components/blocks/UtilsForm.jsx";
 import AddFilmForm from "../../components/forms/AddFilmForm.jsx";
 import {FilmsContext} from "../../context/FilmsContext.jsx";
@@ -140,6 +140,11 @@ const FilmsPage = () => {
     const clearSearchQuery = query.trim().toLowerCase();
     let sortedFilms = clearSearchQuery ? films.filter((film) => film.filmName.toLowerCase().includes(clearSearchQuery)) : [...films]
 
+    if (sortType === "byWatch") {
+        sortedFilms.sort((a, b) => {
+            return Number(b.isWatched) - Number(a.isWatched)
+        })
+    }
 
     if (sortType === "byName") {
         sortedFilms.sort((a, b) =>

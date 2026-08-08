@@ -33,8 +33,8 @@ const AddFilmForm = (props) => {
                     </Button>
                 </div>
                 <div className="add-film__body">
-                    <Field placeholder="Название" value={filmName} onChange={(e) => setFilmName(e.target.value)}/>
-                    <Select value={filmType} onChange={(e) => setFilmType(e.target.value)}>
+                    <Field placeholder="Название" value={filmName} onChange={(e) => setFilmName(e.target.value)} required/>
+                    <Select value={filmType} onChange={(e) => setFilmType(e.target.value)} required>
                         <option disabled={true}>
                             Тип
                         </option>
@@ -51,13 +51,13 @@ const AddFilmForm = (props) => {
                             Serial
                         </option>
                     </Select>
-                    {filmType === "serial" ? (
+                    {filmType === "serial" || filmType === "cartoon" || filmType === "anime" ? (
                         <>
                             <Field type="number" placeholder="Сезон" value={filmSeason} onChange={(e) => setFilmSeason(e.target.value)}/>
                             <Field type="number" placeholder="Серия" value={filmSeries} onChange={(e) => setFilmSeries(e.target.value)}/>
                         </>
                     ) : null}
-                    <Field type="number" placeholder="Рейтинг" value={filmRating} onChange={(e) => setFilmRating(e.target.value)} max="10" min="0"/>
+                    <Field type="number" placeholder="Рейтинг" value={filmRating} onChange={(e) => setFilmRating(e.target.value)} max="10" min="0" required/>
                 </div>
                 <div className="add-film__footer">
                     <Button className="add-film__button" type="submit">

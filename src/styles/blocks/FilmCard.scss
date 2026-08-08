@@ -10,6 +10,7 @@
   min-width: 350px;
   box-shadow: var(--shadow-md);
   transition: var(--transition-normal);
+  animation: fade-in 0.40s ease;
 
   &__header {
     @include flex-between-row-center;
@@ -26,6 +27,7 @@
     background-color: var(--tag-series-bg);
     padding: var(--space-sm);
     border-radius: var(--radius-md);
+    font-weight: var(--font-weight-bold);
   }
 
   &__season {
@@ -33,26 +35,31 @@
     background-color: var(--tag-season-bg);
     padding: var(--space-sm);
     border-radius: var(--radius-md);
+    font-weight: var(--font-weight-bold);
   }
 
   &__serial {
     color: var(--tag-series-text);
     background-color: var(--tag-series-bg);
+    font-weight: var(--font-weight-bold);
   }
 
   &__movie {
     color: var(--tag-movie-text);
     background-color: var(--tag-movie-bg);
+    font-weight: var(--font-weight-bold);
   }
 
   &__cartoon {
     color: var(--tag-cartoon-text);
     background-color: var(--tag-cartoon-bg);
+    font-weight: var(--font-weight-bold);
   }
 
   &__type {
     padding: var(--space-sm);
     border-radius: var(--radius-md);
+    font-weight: var(--font-weight-bold);
   }
 
   &__body {

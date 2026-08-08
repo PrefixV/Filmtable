@@ -28,6 +28,9 @@ const UtilsForm = (props) => {
                 <option value={"byType"}>
                    По типу
                 </option>
+                <option value={"byWatch"}>
+                    Просмотренные
+                </option>
             </Select>
             <Button className={`button__open-modal`} onClick={openModal}>
                 +

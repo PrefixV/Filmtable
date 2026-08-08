@@ -1,4 +1,4 @@
-import Button from "./Button.jsx";
+import Button from "../Button.jsx";
 import {Check, TrashAlt, PenAlt} from '@boxicons/react';
 
 const FilmCard = (props) => {

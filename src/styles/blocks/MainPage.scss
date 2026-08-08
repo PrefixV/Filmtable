@@ -1,0 +1,44 @@
+.main-page__wrapper {
+  padding: var(--space-md);
+}
+
+.dashboard {
+  padding-top: var(--space-md);
+  @include flex-row;
+  gap: 30px;
+
+  &-item {
+    @include flex-column;
+    background-color: rgb(255 255 255 / 0.05);
+    backdrop-filter: blur(4px);
+    width: fit-content;
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    gap: 15px;
+    border: 1px solid var(--color-border);
+    min-width: 350px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    min-height: 130px;
+    animation: fade-in .40s ease;
+  }
+
+  &-header {
+    @include flex-row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &-tag {
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-full);
+    background-color: var(--tag-movie-bg);
+    font-family: "Segoe UI";
+    font-weight: var(--font-weight-bold);
+  }
+
+  &-title {
+    font-size: var(--font-size-lg);
+  }
+}
+

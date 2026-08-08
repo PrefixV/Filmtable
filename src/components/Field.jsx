@@ -9,10 +9,11 @@ const Field = (props) => {
         disabled,
         min,
         max,
+        required,
     } = props;
 
     return (
-        <input type={type} className={className} value={value} onChange={onChange} placeholder={placeholder} id={id} disabled={disabled} min={min} max={max}/>
+        <input type={type} className={className} value={value} onChange={onChange} placeholder={placeholder} id={id} disabled={disabled} min={min} max={max} required={required}/>
     )
 }
 
