@@ -25,7 +25,7 @@ const AddFilmForm = (props) => {
 
     return (
         <div className={`modal-overlay ${isModalOpen ? "modal-overlay--open" : ""}`}>
-            <form className="add-film">
+            <form className="add-film" onSubmit={editingFilm ? () => onEditFilm(editingFilm) : onSaveFilm}>
                 <div className="add-film__header">
                     <p className="add-film__title">{editingFilm ? "Изменить фильм" : "Добавить фильм"}</p>
                     <Button onClick={closeModal} className="close-modal__button">
@@ -60,7 +60,7 @@ const AddFilmForm = (props) => {
                     <Field type="number" placeholder="Рейтинг" value={filmRating} onChange={(e) => setFilmRating(e.target.value)} max="10" min="0"/>
                 </div>
                 <div className="add-film__footer">
-                    <Button className="add-film__button" onClick={editingFilm ? () => onEditFilm(editingFilm) : onSaveFilm}>
+                    <Button className="add-film__button" type="submit">
                         {editingFilm ? "Сохранить" : "Добавить"}
                     </Button>
                 </div>

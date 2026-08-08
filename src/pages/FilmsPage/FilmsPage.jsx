@@ -1,12 +1,13 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
 import {createFilm, getFilms, deleteFilm, toggleFilmWatch, editFilm} from "../../api/filmsApi.js";
 import FilmCard from "../../components/FilmCard.jsx";
 import UtilsForm from "../../components/blocks/UtilsForm.jsx";
 import AddFilmForm from "../../components/forms/AddFilmForm.jsx";
+import {FilmsContext} from "../../context/FilmsContext.jsx";
 
 const FilmsPage = () => {
 
-    const [films, setFilms] = useState([]);
+    const {films, setFilms} = useContext(FilmsContext);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
@@ -137,14 +138,8 @@ const FilmsPage = () => {
     };
 
     const clearSearchQuery = query.trim().toLowerCase();
-    let sortedFilms = [...films];
+    let sortedFilms = clearSearchQuery ? films.filter((film) => film.filmName.toLowerCase().includes(clearSearchQuery)) : [...films]
 
-    if(clearSearchQuery.length > 0) {
-        console.log(clearSearchQuery)
-        sortedFilms.filter((film) => {
-            return film.filmName.toLowerCase().includes(clearSearchQuery)
-        })
-    }
 
     if (sortType === "byName") {
         sortedFilms.sort((a, b) =>

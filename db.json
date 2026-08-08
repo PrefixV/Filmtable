@@ -6,7 +6,7 @@
       "filmRating": "4",
       "filmSeason": "0",
       "filmSeries": "0",
-      "isWatched": true,
+      "isWatched": false,
       "id": "RjltP1zfb7I"
     },
     {
@@ -15,7 +15,7 @@
       "filmRating": "10",
       "filmSeason": "0",
       "filmSeries": "0",
-      "isWatched": false,
+      "isWatched": true,
       "id": "fqubmMpDaAg"
     },
     {
@@ -26,15 +26,6 @@
       "filmSeries": "0",
       "isWatched": false,
       "id": "s6s97R-5CCY"
-    },
-    {
-      "filmName": "Кератин",
-      "filmType": "serial",
-      "filmRating": "4",
-      "filmSeason": "4",
-      "filmSeries": "7",
-      "isWatched": false,
-      "id": "Q29zqq4p0BA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

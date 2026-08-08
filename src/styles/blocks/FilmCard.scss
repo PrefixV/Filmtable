@@ -1,12 +1,15 @@
 .film-card {
   @include flex-column;
-  background-color: var(--color-card);
+  background-color: rgb(255 255 255 / 0.05);
+  backdrop-filter: blur(4px);
   width: fit-content;
   padding: var(--space-md);
   border-radius: var(--radius-md);
   gap: 15px;
   border: 1px solid var(--color-border);
   min-width: 350px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
 
   &__header {
     @include flex-between-row-center;
@@ -65,4 +68,9 @@
   &:hover {
 
   }
+
+}
+
+.watched {
+  background-color: var(--color-watched);
 }

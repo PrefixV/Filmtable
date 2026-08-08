@@ -42,7 +42,7 @@
 
   box-shadow: var(--shadow-lg);
 
-  animation: modal-show .25s ease;
+  animation: modal-show .10s ease;
 
   &__header {
     @include flex-between-row-center;

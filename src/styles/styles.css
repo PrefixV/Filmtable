@@ -40,7 +40,7 @@
      Film specific
   ========================= */
   --color-rating: #facc15;
-  --color-watched: #22c55e;
+  --color-watched: rgb(44 65 100 / 0.65);
   --color-unwatched: #64748b;
   /* Film tags */
   --tag-movie-bg: #4338ca;
@@ -242,13 +242,16 @@ a {
 .film-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--color-card);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
   width: fit-content;
   padding: var(--space-md);
   border-radius: var(--radius-md);
   gap: 15px;
   border: 1px solid var(--color-border);
   min-width: 350px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
 }
 .film-card__header {
   display: flex;
@@ -302,6 +305,10 @@ a {
   flex-direction: row;
   gap: 5px;
 }
+.watched {
+  background-color: var(--color-watched);
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -391,7 +398,7 @@ a {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  animation: modal-show 0.25s ease;
+  animation: modal-show 0.1s ease;
 }
 .add-film__header {
   display: flex;
