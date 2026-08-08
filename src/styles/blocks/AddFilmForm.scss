@@ -1,0 +1,135 @@
+.modal-overlay {
+  @include flex-center-column;
+
+  position: fixed;
+  inset: 0;
+
+  padding: var(--space-lg);
+
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+
+  z-index: var(--z-modal);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity .25s ease, visibility .25s ease;
+}
+
+.modal-overlay--open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.add-film {
+  @include flex-column;
+
+  width: 100%;
+  max-width: 500px;
+
+  gap: var(--space-xl);
+
+  padding: var(--space-xl);
+
+  background: var(--color-bg-card);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-lg);
+
+  animation: modal-show .25s ease;
+
+  &__header {
+    @include flex-between-row-center;
+
+    gap: var(--space-lg);
+
+    .add-film__title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text);
+    }
+
+    .close-modal__button {
+      @include flex-center-row;
+
+      width: 44px;
+      height: 44px;
+
+      flex-shrink: 0;
+
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+
+      background: transparent;
+
+      transition: var(--transition-fast);
+
+      &:hover {
+        transform: rotate(90deg);
+        background: var(--button-ghost-hover);
+      }
+    }
+  }
+
+  &__body {
+    @include flex-column;
+
+    gap: var(--space-md);
+  }
+
+  &__footer {
+    @include flex-between-row-center;
+
+    gap: var(--space-md);
+
+    .add-film__button {
+      min-width: 140px;
+      height: 44px;
+      padding: 0 var(--space-xl);
+    }
+  }
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .modal-overlay {
+    padding: var(--space-md);
+  }
+
+  .add-film {
+    max-width: 100%;
+    padding: var(--space-lg);
+
+    &__header {
+      .add-film__title {
+        font-size: var(--font-size-lg);
+      }
+    }
+
+    &__footer {
+      flex-direction: column;
+
+      .add-film__button {
+        width: 100%;
+      }
+    }
+  }
+}

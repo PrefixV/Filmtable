@@ -1,0 +1,19 @@
+.navbar {
+  @include flex-between-row-center;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+  width: 100%;
+
+  &__menu-list {
+    @include flex-between-row-center;
+    list-style: none;
+    width: 100%;
+
+    &__links {
+        @include flex-row;
+        gap: 30px;
+        color: var(--color-text);
+        font-size: var(--font-size-lg);
+    }
+  }
+}

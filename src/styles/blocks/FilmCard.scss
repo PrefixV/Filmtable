@@ -1,0 +1,68 @@
+.film-card {
+  @include flex-column;
+  background-color: var(--color-card);
+  width: fit-content;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  gap: 15px;
+  border: 1px solid var(--color-border);
+  min-width: 350px;
+
+  &__header {
+    @include flex-between-row-center;
+    gap: 50px;
+
+    &-info {
+      @include flex-between-row-center;
+      gap: 10px;
+    }
+  }
+
+  &__series {
+    color: var(--tag-series-text);
+    background-color: var(--tag-series-bg);
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+  }
+
+  &__season {
+    color: var(--tag-season-text);
+    background-color: var(--tag-season-bg);
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+  }
+
+  &__serial {
+    color: var(--tag-series-text);
+    background-color: var(--tag-series-bg);
+  }
+
+  &__movie {
+    color: var(--tag-movie-text);
+    background-color: var(--tag-movie-bg);
+  }
+
+  &__cartoon {
+    color: var(--tag-cartoon-text);
+    background-color: var(--tag-cartoon-bg);
+  }
+
+  &__type {
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+  }
+
+  &__body {
+    @include flex-column;
+    gap: 10px;
+  }
+
+  &__footer {
+    @include flex-row;
+    gap: 5px;
+  }
+
+  &:hover {
+
+  }
+}

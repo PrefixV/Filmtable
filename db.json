@@ -1,0 +1,41 @@
+{
+  "films": [
+    {
+      "filmName": "Том и джерри",
+      "filmType": "movie",
+      "filmRating": "4",
+      "filmSeason": "0",
+      "filmSeries": "0",
+      "isWatched": true,
+      "id": "RjltP1zfb7I"
+    },
+    {
+      "filmName": "Человек паук: Возвращение домой",
+      "filmType": "movie",
+      "filmRating": "10",
+      "filmSeason": "0",
+      "filmSeries": "0",
+      "isWatched": false,
+      "id": "fqubmMpDaAg"
+    },
+    {
+      "filmName": "Аватар",
+      "filmType": "movie",
+      "filmRating": "4",
+      "filmSeason": "0",
+      "filmSeries": "0",
+      "isWatched": false,
+      "id": "s6s97R-5CCY"
+    },
+    {
+      "filmName": "Кератин",
+      "filmType": "serial",
+      "filmRating": "4",
+      "filmSeason": "4",
+      "filmSeries": "7",
+      "isWatched": false,
+      "id": "Q29zqq4p0BA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

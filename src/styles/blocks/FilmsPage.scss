@@ -1,0 +1,12 @@
+.films-page__wrapper {
+  @include flex-column;
+  flex-wrap: wrap;
+  padding: var(--space-md);
+}
+
+.films-page__list {
+  @include flex-row;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: var(--space-md);
+}
