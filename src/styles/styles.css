@@ -239,6 +239,54 @@ a {
   padding: 0 var(--space-md);
 }
 
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: fit-content;
+  cursor: pointer;
+  user-select: none;
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+}
+.checkbox input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--input-bg);
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+.checkbox input:hover {
+  border-color: var(--color-primary);
+}
+.checkbox input:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+.checkbox input:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.checkbox input:checked::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  margin: 2px auto 0;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(45deg);
+}
+.checkbox span {
+  cursor: pointer;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -411,7 +459,7 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
 }
 .dashboard-tag {
   padding: var(--space-sm) var(--space-md);

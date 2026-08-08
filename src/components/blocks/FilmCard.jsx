@@ -21,7 +21,7 @@ const FilmCard = (props) => {
         <div className={isWatched ? `film-card watched` : `film-card`}>
             <div className={"film-card__header"}>
                 <p className={`film-card__${filmType} film-card__type`}>
-                    {filmType}
+                    #{filmType}
                 </p>
                 <div className={"film-card__header-info"}>
                     {filmSeason && <p className={"film-card__season"}>Сезон: {filmSeason}</p>}

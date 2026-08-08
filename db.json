@@ -24,7 +24,7 @@
       "filmRating": "4",
       "filmSeason": "0",
       "filmSeries": "0",
-      "isWatched": false,
+      "isWatched": true,
       "id": "s6s97R-5CCY"
     },
     {
@@ -33,7 +33,7 @@
       "filmRating": "8",
       "filmSeason": "2",
       "filmSeries": "4",
-      "isWatched": true,
+      "isWatched": false,
       "id": "D2cINhYa5a0"
     },
     {
@@ -52,7 +52,16 @@
       "filmSeason": "0",
       "filmSeries": "0",
       "isWatched": true,
-      "id": "X4IcO0xwE3c"
+      "id": "s3WpGpK3rAA"
+    },
+    {
+      "filmName": "Шерлок холмс",
+      "filmType": "movie",
+      "filmRating": "4",
+      "filmSeason": "",
+      "filmSeries": "",
+      "isWatched": true,
+      "id": "HKi3g_kxvYI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

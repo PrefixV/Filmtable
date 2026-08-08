@@ -15,12 +15,16 @@ const FilmsPage = () => {
 
     const [filmName, setFilmName] = useState("");
     const [filmType, setFilmType] = useState("movie");
-    const [filmSeries, setFilmSeries] = useState("0");
-    const [filmSeason, setFilmSeason] = useState("0");
+    const [filmSeries, setFilmSeries] = useState("");
+    const [filmSeason, setFilmSeason] = useState("");
     const [filmRating, setFilmRating] = useState("");
+
+    const [enableSeries, setEnableSeries] = useState(false);
+    const [enableRating, setEnableRating] = useState(false);
 
     const [query, setQuery] = useState("");
     const [sortType, setSortType] = useState("byName");
+    const [watchFilter, setWatchFilter] = useState("all")
 
     const [editingFilm, setEditingFilm] = useState(null)
 
@@ -31,8 +35,9 @@ const FilmsPage = () => {
     const clearForm = () => {
         setFilmName("")
         setFilmRating("")
-        setFilmSeason("0")
-        setFilmSeries("0")
+        setFilmSeason("")
+        setFilmSeries("")
+        setEnableSeries(false);
         setFilmType("movie")
     }
 
@@ -138,31 +143,41 @@ const FilmsPage = () => {
     };
 
     const clearSearchQuery = query.trim().toLowerCase();
-    let sortedFilms = clearSearchQuery ? films.filter((film) => film.filmName.toLowerCase().includes(clearSearchQuery)) : [...films]
+    let filteredFilms = [...films]
 
-    if (sortType === "byWatch") {
-        sortedFilms.sort((a, b) => {
-            return Number(b.isWatched) - Number(a.isWatched)
-        })
+    if(watchFilter === "selectAll") {
+        filteredFilms = [...films]
+    }
+
+    if(watchFilter === "byDoWatch") {
+        filteredFilms = films.filter(film => film.isWatched);
+    }
+
+    if(watchFilter === "byNotWatch") {
+        filteredFilms = films.filter(film => film.isWatched === false)
     }
 
     if (sortType === "byName") {
-        sortedFilms.sort((a, b) =>
+        filteredFilms.sort((a, b) =>
             a.filmName.localeCompare(b.filmName)
         );
     }
 
     if (sortType === "byType") {
-        sortedFilms.sort((a, b) =>
+        filteredFilms.sort((a, b) =>
             a.filmType.localeCompare(b.filmType)
         );
     }
 
     if (sortType === "byRating") {
-        sortedFilms.sort((a, b) =>
+        filteredFilms.sort((a, b) =>
             Number(b.filmRating) - Number(a.filmRating)
         );
     }
+
+    clearSearchQuery.length > 0 ? filteredFilms = filteredFilms.filter((film) => film.filmName.toLowerCase().includes(clearSearchQuery)) : filteredFilms
+
+
 
     useEffect(() => {
         loadFilms()
@@ -177,6 +192,8 @@ const FilmsPage = () => {
                     setSearchQuery={setQuery}
                     sortType={sortType}
                     setSortType={setSortType}
+                    watchFilter={watchFilter}
+                    setWatchFilter={setWatchFilter}
                 />
                 <AddFilmForm
                     isModalOpen={isModalOpen}
@@ -194,12 +211,16 @@ const FilmsPage = () => {
                     onSaveFilm={handleSaveFilm}
                     editingFilm={editingFilm}
                     onEditFilm={handleEditFilm}
+                    enableSeries={enableSeries}
+                    setEnableSeries={setEnableSeries}
+                    enableRating={enableRating}
+                    setEnableRating={setEnableRating}
                 />
             </div>
             <div className="films-page__list">
                 {error && <p>{error}</p>}
                 {loading && <p>Загрузка...</p>}
-                {sortedFilms.map((film) => {
+                {filteredFilms.map((film) => {
                     return <FilmCard
                         {...film}
                         key={film.id}

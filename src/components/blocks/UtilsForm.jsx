@@ -10,11 +10,27 @@ const UtilsForm = (props) => {
         setSearchQuery,
         sortType,
         setSortType,
+        watchFilter,
+        setWatchFilter
     } = props;
 
     return (
         <form className="form utils-form" onSubmit={(e) => e.preventDefault()}>
             <Field type="search" id="search-field" placeholder="Найти фильм" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
+            <Select className={"sort-field"} value={watchFilter} onChange={(e) => setWatchFilter(e.target.value)}>
+                <option disabled={true}>
+                    Выбор
+                </option>
+                <option value={"selectAll"}>
+                    Все
+                </option>
+                <option value={"byDoWatch"}>
+                    Просмотренные
+                </option>
+                <option value={"byNotWatch"}>
+                    Не просмотренные
+                </option>
+            </Select>
             <Select className={"sort-field"} value={sortType} onChange={(e) => setSortType(e.target.value)}>
                 <option disabled={true}>
                     Сортировка
@@ -27,9 +43,6 @@ const UtilsForm = (props) => {
                 </option>
                 <option value={"byType"}>
                    По типу
-                </option>
-                <option value={"byWatch"}>
-                    Просмотренные
                 </option>
             </Select>
             <Button className={`button__open-modal`} onClick={openModal}>
