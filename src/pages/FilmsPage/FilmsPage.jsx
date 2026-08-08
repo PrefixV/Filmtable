@@ -1,5 +1,5 @@
 import {useEffect, useState, useContext} from "react";
-import {createFilm, getFilms, deleteFilm, toggleFilmWatch, editFilm} from "../../api/filmsApi.js";
+import {createFilm, getFilms, deleteFilm, toggleFilmWatch, editFilm, getFilmById} from "../../api/filmsApi.js";
 import FilmCard from "../../components/blocks/FilmCard.jsx";
 import UtilsForm from "../../components/blocks/UtilsForm.jsx";
 import AddFilmForm from "../../components/forms/AddFilmForm.jsx";
@@ -75,16 +75,16 @@ const FilmsPage = () => {
             setIsModalOpen(false);
 
         } catch (e) {
-            setError("Ошибка добавления фильма");
+            setError(e.message);
         }
     }
 
     const handleDeleteFilm = async (filmId) => {
         try {
-            const data = await deleteFilm(filmId)
+            await deleteFilm(filmId)
             setFilms(prevFilms => prevFilms.filter(film => film.id !== filmId))
         } catch (e) {
-            setError("Ошибка удаления фильма")
+            setError(e.message)
         }
     }
     
@@ -101,7 +101,7 @@ const FilmsPage = () => {
                 })
             })
         } catch (e) {
-            setError("Ошибка переключения просмотра")
+            setError(e.message)
         }
         
     }

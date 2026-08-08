@@ -71,3 +71,20 @@ export const editFilm = async (filmId,film) => {
     const data = await response.json();
     return data;
 }
+
+export const getFilmById = async (filmId) => {
+    const response = await fetch(`${API_URL}/${filmId}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({filmId})
+    })
+
+    if(!response.ok) {
+        throw new Error("Ошибка получения фильма");
+    }
+
+    const data = await response.json();
+    return data;
+}
