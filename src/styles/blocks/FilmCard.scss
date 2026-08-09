@@ -69,11 +69,22 @@
 
   &__footer {
     @include flex-row;
+    align-items: center;
+    justify-content: space-between;
     gap: 5px;
   }
 
-  &:hover {
+  &__buttons {
+    @include flex-row;
+    align-items: center;
+    gap: 5px;
+  }
 
+  &__details {
+    button {
+      height: 35px;
+      padding: var(--space-sm) var(--space-md);
+    }
   }
 
 }

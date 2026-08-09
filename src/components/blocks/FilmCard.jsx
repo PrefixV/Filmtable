@@ -1,5 +1,7 @@
 import Button from "../Button.jsx";
 import {Check, TrashAlt, PenAlt} from '@boxicons/react';
+import { Link } from "react-router-dom"
+
 
 const FilmCard = (props) => {
 
@@ -12,9 +14,9 @@ const FilmCard = (props) => {
         isWatched,
         id,
         children,
-        onDeleteFilm,
         onToggleIsWatched,
         onEditStart,
+        onDeleteButtonClick,
     } = props;
 
     return (
@@ -34,15 +36,24 @@ const FilmCard = (props) => {
                 {children}
             </div>
             <div className={"film-card__footer"}>
-                <Button className="check__button" onClick={() => onToggleIsWatched(id, isWatched)}>
-                    <Check style={{height: "20px", width: "20px"}}/>
-                </Button>
-                <Button className="delete__button" onClick={() => onDeleteFilm(id)}>
-                    <TrashAlt style={{height: "20px", width: "20px"}}/>
-                </Button>
-                <Button className="edit__button" onClick={() => onEditStart(props)}>
-                    <PenAlt style={{height: "20px", width: "20px"}}/>
-                </Button>
+                <div className="film-card__buttons">
+                    <Button className="check__button" onClick={() => onToggleIsWatched(id, isWatched)}>
+                        <Check style={{height: "20px", width: "20px"}}/>
+                    </Button>
+                    <Button className="delete__button" onClick={() => onDeleteButtonClick(id)}>
+                        <TrashAlt style={{height: "20px", width: "20px"}}/>
+                    </Button>
+                    <Button className="edit__button" onClick={() => onEditStart(props)}>
+                        <PenAlt style={{height: "20px", width: "20px"}}/>
+                    </Button>
+                </div>
+                <div className="film-card__details">
+                    <Link to={`${id}`}>
+                        <Button>
+                            Подробнее
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </div>
     )

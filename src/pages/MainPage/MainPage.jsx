@@ -6,11 +6,13 @@ import DashboardFilmsCategories from "../../components/blocks/DashboardFillmsCat
 import DashboardBestFilm from "../../components/blocks/DashboardBestFilm.jsx";
 
 const MainPage = () => {
-    const {films} = useContext(FilmsContext)
+    const {films, loading, error} = useContext(FilmsContext)
 
     return (
         <div className="main-page__wrapper">
             <h1>Dashboard</h1>
+            {loading ? <p>Загрузка...</p> : null}
+            {error ? <p>{error}</p> : null}
             <div className="dashboard">
                 <DashboardFilmsLength films={films}/>
                 <DashboardRating films={films}/>

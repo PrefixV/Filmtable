@@ -5,8 +5,12 @@
 }
 
 .films-page__list {
-  @include flex-row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
   gap: 20px;
+  width: 100%;
   padding-top: var(--space-md);
 }

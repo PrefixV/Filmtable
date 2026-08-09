@@ -2,6 +2,7 @@ import Button from "../Button.jsx";
 import {X} from "@boxicons/react"
 import Field from "../Field.jsx";
 import Select from "../Select.jsx";
+import TextArea from "../TextArea.jsx";
 
 const AddFilmForm = (props) => {
     const {
@@ -24,6 +25,8 @@ const AddFilmForm = (props) => {
         setEnableSeries,
         enableRating,
         setEnableRating,
+        filmDetails,
+        setFilmDetails
     } = props;
 
 
@@ -61,6 +64,10 @@ const AddFilmForm = (props) => {
                             Serial
                         </option>
                     </Select>
+                    <label htmlFor={"textArea"}>
+                        Описание:
+                    </label>
+                    <TextArea id="textArea" placeholder="Описание" value={filmDetails} onChange={(e) => setFilmDetails(e.target.value)}/>
                     {enableSeries ? (
                         <>
                             <label htmlFor="film-season">

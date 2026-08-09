@@ -1,6 +1,7 @@
 import Field from "../Field.jsx";
 import Button from "../Button.jsx";
 import Select from "../Select.jsx";
+import { Plus } from "@boxicons/react"
 
 const UtilsForm = (props) => {
 
@@ -46,7 +47,7 @@ const UtilsForm = (props) => {
                 </option>
             </Select>
             <Button className={`button__open-modal`} onClick={openModal}>
-                +
+                <Plus style={{height: "16px", width: "16px"}}/>
             </Button>
         </form>
     )

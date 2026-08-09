@@ -1,0 +1,215 @@
+
+.film-details__wrapper {
+  min-height: 100vh;
+  padding: var(--space-lg) var(--space-md);
+
+  .link__wrapper {
+    margin-bottom: var(--space-lg);
+
+    a {
+      @include flex-row;
+
+      width: fit-content;
+      align-items: center;
+      gap: 6px;
+
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text);
+
+      transition: color 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+        color: var(--color-primary);
+        transform: translateX(-3px);
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  > p {
+    text-align: center;
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-xl);
+  }
+
+  .card-wrapper {
+    @include flex-column;
+
+    width: min(100%, 700px);
+    margin: 40px auto 0;
+
+    padding: var(--space-lg);
+
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-md);
+
+    gap: var(--space-lg);
+
+    animation: scale-in 0.3s ease;
+
+    .card-header {
+      @include flex-row;
+
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-md);
+
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--color-border);
+
+      h2 {
+        margin: 0;
+
+        font-size: var(--font-size-2xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-text);
+
+        line-height: 1.2;
+      }
+
+      .card-tag {
+        flex-shrink: 0;
+
+        padding: var(--space-sm) var(--space-md);
+
+        background-color: var(--tag-movie-bg);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-full);
+
+        p {
+          margin: 0;
+
+          font-size: var(--font-size-sm);
+          font-weight: var(--font-weight-bold);
+          color: var(--color-text);
+        }
+      }
+
+      .film-status {
+        @include flex-row;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .watch-status {
+        @include flex-row;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .card-body {
+      @include flex-column;
+
+      gap: var(--space-lg);
+
+      .card-details {
+        margin: 0;
+
+        max-width: 600px;
+
+        font-size: var(--font-size-lg);
+        line-height: 1.6;
+        color: var(--color-text-secondary);
+      }
+
+      .film-info {
+        @include flex-column;
+
+        gap: 10px;
+
+        padding: var(--space-md);
+
+        background-color: var(--color-background);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+
+        p {
+          margin: 0;
+
+          font-size: var(--font-size-md);
+          color: var(--color-text);
+
+          &:not(:last-child) {
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--color-border);
+          }
+        }
+
+        .film-type {
+          font-weight: var(--font-weight-bold);
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .film-details__wrapper {
+    padding: var(--space-md);
+
+    .card-wrapper {
+      width: 100%;
+      margin-top: var(--space-lg);
+      padding: var(--space-md);
+
+      .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        h2 {
+          font-size: var(--font-size-xl);
+        }
+      }
+
+      .card-body {
+        .card-details {
+          font-size: var(--font-size-md);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .film-details__wrapper {
+    padding: var(--space-sm);
+
+    .link__wrapper {
+      margin-bottom: var(--space-md);
+
+      a {
+        font-size: var(--font-size-md);
+      }
+    }
+
+    .card-wrapper {
+      gap: var(--space-md);
+      padding: var(--space-md);
+
+      .card-header {
+        .card-tag {
+          padding: 6px 10px;
+        }
+      }
+
+      .card-body {
+        gap: var(--space-md);
+
+        .film-info {
+          padding: var(--space-sm);
+        }
+      }
+    }
+  }
+}

@@ -56,6 +56,7 @@ button {
   background-color: var(--button-primary-bg);
   padding: var(--space-xs);
   transition: var(--transition-normal);
+  font-weight: var(--font-weight-bold);
 
   &:hover {
     background-color: var(--button-primary-hover);
@@ -186,14 +187,68 @@ a {
   }
 }
 
+textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 14px;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: var(--color-text);
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+
+  outline: none;
+  resize: vertical;
+
+  transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          background-color 0.2s ease;
+
+  &::placeholder {
+    color: var(--color-text-secondary);
+  }
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    resize: none;
+  }
+
+}
+
+
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(-50px) scale(.97);
+    transform: translateY(-30px) scale(.97);
   }
 
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(.2);
+  }
+
+  to {
+    transform: scale(1);
   }
 }

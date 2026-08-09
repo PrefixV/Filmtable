@@ -1,0 +1,51 @@
+.modal-delete__overlay {
+  @include flex-center-column;
+
+  position: fixed;
+  inset: 0;
+
+  padding: var(--space-lg);
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+
+  z-index: var(--z-modal);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity .25s ease, visibility .25s ease;
+}
+
+.modal-delete--open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.modal-delete {
+  @include flex-column;
+  gap: 30px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  background: var(--color-bg-card);
+  box-shadow: var(--shadow-lg);
+
+  &__title {
+    @include flex-between-row-center;
+    gap: 20px;
+  }
+
+ &__buttons {
+   @include flex-center-row;
+   gap: 40px;
+
+   button {
+     width: 60%;
+     height: 40px;
+   }
+ }
+}
+
+

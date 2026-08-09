@@ -1,0 +1,8 @@
+.modal-delete__overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/*# sourceMappingURL=ModalDeleteConfirm.css.map */
