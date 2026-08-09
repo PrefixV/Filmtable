@@ -1,67 +1,31 @@
 {
   "films": [
     {
-      "filmName": "Том и джерри",
+      "filmName": "1+1",
       "filmType": "movie",
-      "filmRating": "4",
-      "filmSeason": "0",
-      "filmSeries": "0",
-      "isWatched": false,
-      "id": "RjltP1zfb7I"
-    },
-    {
-      "filmName": "Человек паук: Возвращение домой",
-      "filmType": "movie",
-      "filmRating": "10",
-      "filmSeason": "0",
-      "filmSeries": "0",
-      "isWatched": false,
-      "id": "fqubmMpDaAg"
-    },
-    {
-      "filmName": "Аватар",
-      "filmType": "movie",
-      "filmRating": "4",
-      "filmSeason": "0",
-      "filmSeries": "0",
-      "isWatched": true,
-      "id": "s6s97R-5CCY"
-    },
-    {
-      "filmName": "Мистер робот",
-      "filmType": "serial",
-      "filmRating": "8",
-      "filmSeason": "2",
-      "filmSeries": "4",
-      "isWatched": false,
-      "id": "D2cINhYa5a0"
-    },
-    {
-      "filmName": "Стас ай как просто",
-      "filmType": "movie",
-      "filmRating": "10",
-      "filmSeason": "0",
-      "filmSeries": "0",
-      "isWatched": false,
-      "id": "Hm-fZwFUV10"
-    },
-    {
-      "filmName": "Гриффины",
-      "filmType": "cartoon",
-      "filmRating": "10",
-      "filmSeason": "0",
-      "filmSeries": "0",
-      "isWatched": true,
-      "id": "s3WpGpK3rAA"
-    },
-    {
-      "filmName": "Шерлок холмс",
-      "filmType": "movie",
-      "filmRating": "4",
+      "filmRating": "8.4",
       "filmSeason": "",
       "filmSeries": "",
       "isWatched": true,
-      "id": "HKi3g_kxvYI"
+      "id": "ISlpDle4uJg"
+    },
+    {
+      "filmName": "2+1",
+      "filmType": "movie",
+      "filmRating": "6.35",
+      "filmSeason": "",
+      "filmSeries": "",
+      "isWatched": true,
+      "id": "xzPFvOUnwmw"
+    },
+    {
+      "filmName": "Очень странные дела",
+      "filmType": "serial",
+      "filmRating": "6.5",
+      "filmSeason": "3",
+      "filmSeries": "6",
+      "isWatched": false,
+      "id": "4vVYQ40LNj0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

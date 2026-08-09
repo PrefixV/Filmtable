@@ -78,7 +78,7 @@ const AddFilmForm = (props) => {
                             <label htmlFor="film-rating">
                                 Рейтинг:
                             </label>
-                            <Field type="number" placeholder="Рейтинг" value={filmRating} onChange={(e) => setFilmRating(e.target.value)} max="10" min="0" id="film-rating"/>
+                            <Field type="number" placeholder="Рейтинг" value={filmRating} onChange={(e) => setFilmRating(e.target.value)} max="10" min="0" id="film-rating" step="0.01"/>
                         </>
                     ) : null}
                     <label htmlFor="series-enable" className="checkbox">

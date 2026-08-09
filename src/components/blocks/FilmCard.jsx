@@ -30,7 +30,7 @@ const FilmCard = (props) => {
             </div>
             <div className={"film-card__body"}>
                 <h2 className={"film-card__name"}>{filmName}</h2>
-                <p className={"film-card__name"}>{`Рейтинг: ${filmRating}`}</p>
+                <p className={"film-card__name"}>{filmRating ? `Рейтинг: ${filmRating}` : null}</p>
                 {children}
             </div>
             <div className={"film-card__footer"}>

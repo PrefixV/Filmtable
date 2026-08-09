@@ -12,6 +12,7 @@ const FilmsPage = () => {
     const [error, setError] = useState("");
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
 
     const [filmName, setFilmName] = useState("");
     const [filmType, setFilmType] = useState("movie");

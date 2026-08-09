@@ -1,5 +1,7 @@
 .main-page__wrapper {
   padding: var(--space-md);
+  @include flex-row;
+  flex-wrap: wrap;
 }
 
 .dashboard {
