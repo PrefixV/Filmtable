@@ -19,6 +19,7 @@ const FilmsPage = () => {
     const [filmSeason, setFilmSeason] = useState("");
     const [filmRating, setFilmRating] = useState("");
     const [filmDetails, setFilmDetails] = useState("")
+    const [isFilmFavourite, setIsFilmFavourite] = useState(false);
 
     const [enableSeries, setEnableSeries] = useState(false);
     const [enableRating, setEnableRating] = useState(false);
@@ -143,6 +144,10 @@ const FilmsPage = () => {
     const handleStartDelete = (filmId) => {
         setIsModalDeleteOpen(true)
         setDeletingFilmId(filmId)
+    }
+
+    const handleFavourite = () => {
+        setIsFilmFavourite(true);
     }
 
     const clearSearchQuery = query.trim().toLowerCase();

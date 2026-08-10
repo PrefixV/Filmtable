@@ -371,14 +371,14 @@ textarea:disabled {
   background-color: var(--tag-series-bg);
   padding: var(--space-sm);
   border-radius: var(--radius-md);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 .film-card__season {
   color: var(--tag-season-text);
   background-color: var(--tag-season-bg);
   padding: var(--space-sm);
   border-radius: var(--radius-md);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 .film-card__serial {
   color: var(--tag-series-text);
@@ -535,6 +535,29 @@ textarea:disabled {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.best-film__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.best-film__container .best-film__diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  padding: var(--space-xl);
+  border: 5px solid var(--color-primary);
+  width: 100px;
+  height: 100px;
+  font-size: var(--font-size-2xl);
+  animation: scale-in 0.7s ease;
+}
+.best-film__container .best-film__title {
+  font-size: var(--font-size-2xl);
 }
 
 .modal-overlay {

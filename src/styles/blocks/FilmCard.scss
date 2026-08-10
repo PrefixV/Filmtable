@@ -27,7 +27,7 @@
     background-color: var(--tag-series-bg);
     padding: var(--space-sm);
     border-radius: var(--radius-md);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-medium);
   }
 
   &__season {
@@ -35,7 +35,7 @@
     background-color: var(--tag-season-bg);
     padding: var(--space-sm);
     border-radius: var(--radius-md);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-medium);
   }
 
   &__serial {
