@@ -514,8 +514,8 @@ textarea:disabled {
 .films-page__wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 100%;
+  min-height: 90vh;
   padding: var(--space-md);
 }
 
@@ -533,6 +533,7 @@ textarea:disabled {
   gap: 10px;
   justify-content: center;
   align-items: center;
+  margin-top: auto;
 }
 .films-page__footer .pagination-wrapper {
   display: flex;

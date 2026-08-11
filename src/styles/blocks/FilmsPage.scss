@@ -1,8 +1,7 @@
 .films-page__wrapper {
   @include flex-column;
-  justify-content: space-between;
   width: 100%;
-
+  min-height: 90vh;
   padding: var(--space-md);
 }
 
@@ -28,6 +27,7 @@
   gap: 10px;
   justify-content: center;
   align-items: center;
+  margin-top: auto;
 
   .pagination-wrapper {
     @include flex-row;

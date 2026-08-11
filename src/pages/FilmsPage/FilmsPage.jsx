@@ -181,12 +181,7 @@ const FilmsPage = () => {
         currentFilms = films.filter(film => film.isFilmFavourite === true)
     }
 
-    clearSearchQuery.length > 0 ? filteredFilms = currentFilms.filter((film) => film.filmName.toLowerCase().includes(clearSearchQuery)) : filteredFilms
-
-
-    useEffect(() => {
-        goToPage(1)
-    }, [query, sortType, watchFilter]);
+    clearSearchQuery.length > 0 ? currentFilms = currentFilms.filter((film) => film.filmName.toLowerCase().includes(clearSearchQuery)) : filteredFilms
 
     return (
         <>
@@ -249,9 +244,6 @@ const FilmsPage = () => {
                         />
                     })}
                 </div>
-            </div>
-            {currentFilms.length > 0 && (
-                <>
                 <div className="films-page__footer">
                     <Pagination
                         currentPage={currentPage}
@@ -262,8 +254,7 @@ const FilmsPage = () => {
                         система оценки фильмов
                     </Link>
                 </div>
-                </>
-            )}
+            </div>
         </>
     )
 }
