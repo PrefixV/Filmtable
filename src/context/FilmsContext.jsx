@@ -1,5 +1,5 @@
 import {createContext, useEffect, useState} from "react";
-import {getFilms} from "../api/filmsApi.js";
+import {deleteFilm, getFilms} from "../api/filmsApi.js";
 
 export const FilmsContext = createContext(null);
 
@@ -8,6 +8,27 @@ const FilmsProvider = ({children}) => {
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+
+    const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false)
+
+    const openDeleteModal = () => {
+        setIsModalDeleteOpen(true)
+    }
+
+    const closeDeleteOpen = () => {
+        setIsModalDeleteOpen(false)
+    }
+
+
+    const handleDeleteFilm = async (filmId) => {
+        try {
+            await deleteFilm(filmId)
+            setFilms(prevFilms => prevFilms.filter(film => film.id !== filmId))
+            closeDeleteOpen();
+        } catch (e) {
+            setError(e.message)
+        }
+    }
 
     const loadFilms = async () => {
         try {
@@ -28,7 +49,7 @@ const FilmsProvider = ({children}) => {
     }, []);
 
     return (
-        <FilmsContext.Provider value={{films, setFilms, loading, setLoading, error, setError, loadFilms}}>
+        <FilmsContext.Provider value={{films, setFilms, loading, setLoading, error, setError, loadFilms, isModalDeleteOpen, openDeleteModal, closeDeleteOpen, handleDeleteFilm}}>
             {children}
         </FilmsContext.Provider>
     )

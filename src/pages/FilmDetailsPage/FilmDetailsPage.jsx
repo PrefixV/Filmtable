@@ -1,15 +1,18 @@
-import {Link, useParams} from "react-router-dom"
+import {Link, useParams, useNavigate} from "react-router-dom"
 import { ArrowLeftStroke, Eye, LowVision} from "@boxicons/react"
-import {getFilmById} from "../../api/filmsApi.js";
+import {editFilmFavourite, getFilmById} from "../../api/filmsApi.js";
 import {useContext, useEffect, useState} from "react";
 import {FilmsContext} from "../../context/FilmsContext.jsx";
+import Button from "../../components/Button.jsx";
+import ModalDeleteConfirm from "../../components/ModalDeleteConfirm.jsx";
 
 
 const FilmDetailsPage = () => {
 
     const {id} = useParams()
-    const {setLoading,loading, error, setError} = useContext(FilmsContext)
+    const {setLoading,loading, error, setError, handleDeleteFilm, openDeleteModal, closeDeleteOpen, isModalDeleteOpen} = useContext(FilmsContext)
     const [film, setFilm] = useState(null)
+
 
     const getFilm = async () => {
         try {
@@ -23,6 +26,27 @@ const FilmDetailsPage = () => {
         }
     }
 
+    const editFilmIsFavourite = async () => {
+        try {
+            const data = await editFilmFavourite(id, !film.isFilmFavourite);
+            console.log(film)
+            setFilm(data);
+        } catch (e) {
+            setError(e.message)
+        }
+    }
+
+    const navigate = useNavigate();
+
+    const onHandleDeleteFilm = () => {
+        try {
+            handleDeleteFilm(id)
+            navigate("/films")
+        } catch (e) {
+            setError(e.message)
+        }
+    }
+
     useEffect(() => {
         getFilm()
     }, [id]);
@@ -33,6 +57,12 @@ const FilmDetailsPage = () => {
             {error ? <p>{error}</p> : null}
             {film && (
                 <>
+                    <ModalDeleteConfirm
+                        isModalDeleteOpen={isModalDeleteOpen}
+                        setModalDeleteClose={closeDeleteOpen}
+                        onDeleteFilm={onHandleDeleteFilm}
+                        id={id}
+                    />
                     <div className="link__wrapper">
                         <Link to={"/films"}>
                             <ArrowLeftStroke />
@@ -62,7 +92,25 @@ const FilmDetailsPage = () => {
                                 <p className="film-rating">
                                     Рейтинг: {film.filmRating}
                                 </p>
+                                {film.filmType === "serial" && (
+                                    <>
+                                        <p className="film-season">
+                                            Сезон: {film.filmSeason}
+                                        </p>
+                                        <p className="film-series">
+                                            Серия: {film.filmSeries}
+                                        </p>
+                                    </>
+                                )}
                             </div>
+                        </div>
+                        <div className="card-footer">
+                            <Button className={"delete-button"} onClick={() => openDeleteModal()}>
+                                Удалить
+                            </Button>
+                            <Button onClick={editFilmIsFavourite}>
+                                {film.isFilmFavourite ? "Убрать из избранного" : "Добавить в избранное"}
+                            </Button>
                         </div>
                     </div>
                 </>

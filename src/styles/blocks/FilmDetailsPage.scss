@@ -136,7 +136,7 @@
         p {
           margin: 0;
 
-          font-size: var(--font-size-md);
+          font-size: var(--font-size-lg);
           color: var(--color-text);
 
           &:not(:last-child) {
@@ -147,6 +147,27 @@
 
         .film-type {
           font-weight: var(--font-weight-bold);
+        }
+      }
+    }
+
+    .card-footer {
+      @include flex-row;
+      align-items: center;
+      gap: 10px;
+
+      button {
+        padding: var(--space-sm) var(--space-md);
+        height: 35px;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+      }
+
+      .delete-button {
+        background-color: var(--button-danger-bg);
+
+        &:hover {
+          background-color: var(--button-danger-hover);
         }
       }
     }

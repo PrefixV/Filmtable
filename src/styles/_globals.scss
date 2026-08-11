@@ -15,10 +15,16 @@ body {
 }
 
 
+body, html {
+  scrollbar-width: none;
+}
+
 button,
 input {
   font-family: inherit;
 }
+
+
 
 input {
   color: var(--input-text);

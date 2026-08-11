@@ -1,94 +1,254 @@
 .film-card {
   @include flex-column;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: var(--space-md);
+
   background-color: rgb(255 255 255 / 0.05);
   backdrop-filter: blur(4px);
-  width: fit-content;
-  padding: var(--space-md);
-  border-radius: var(--radius-md);
-  gap: 15px;
+
   border: 1px solid var(--color-border);
-  min-width: 350px;
+  border-radius: var(--radius-md);
+
   box-shadow: var(--shadow-md);
-  transition: var(--transition-normal);
-  animation: fade-in 0.40s ease;
+
+  gap: 15px;
+
+  transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+
+  animation: fade-in 0.4s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-lg);
+
+    border-color: var(--color-primary);
+  }
+
+
+  // ========================================
+  // HEADER
+  // ========================================
 
   &__header {
     @include flex-between-row-center;
-    gap: 50px;
+
+    gap: var(--space-md);
+
+    min-width: 0;
 
     &-info {
       @include flex-between-row-center;
+
       gap: 10px;
+
+      flex-shrink: 0;
     }
   }
 
-  &__series {
-    color: var(--tag-series-text);
-    background-color: var(--tag-series-bg);
-    padding: var(--space-sm);
-    border-radius: var(--radius-md);
-    font-weight: var(--font-weight-medium);
-  }
 
-  &__season {
-    color: var(--tag-season-text);
-    background-color: var(--tag-season-bg);
+  // ========================================
+  // TYPE
+  // ========================================
+
+  &__type {
+    width: fit-content;
+
     padding: var(--space-sm);
+
     border-radius: var(--radius-md);
-    font-weight: var(--font-weight-medium);
+
+    font-weight: var(--font-weight-bold);
   }
 
   &__serial {
     color: var(--tag-series-text);
     background-color: var(--tag-series-bg);
+
     font-weight: var(--font-weight-bold);
   }
 
   &__movie {
     color: var(--tag-movie-text);
     background-color: var(--tag-movie-bg);
+
     font-weight: var(--font-weight-bold);
   }
 
   &__cartoon {
     color: var(--tag-cartoon-text);
     background-color: var(--tag-cartoon-bg);
+
     font-weight: var(--font-weight-bold);
   }
 
-  &__type {
-    padding: var(--space-sm);
-    border-radius: var(--radius-md);
+  &__anime {
+    color: var(--tag-anime-text);
+    background-color: var(--tag-anime-bg);
+
     font-weight: var(--font-weight-bold);
   }
+
+
+  // ========================================
+  // SEASON / SERIES
+  // ========================================
+
+  &__series {
+    padding: var(--space-sm);
+
+    color: var(--tag-series-text);
+    background-color: var(--tag-series-bg);
+
+    border-radius: var(--radius-md);
+
+    font-weight: var(--font-weight-medium);
+  }
+
+  &__season {
+    padding: var(--space-sm);
+
+    color: var(--tag-season-text);
+    background-color: var(--tag-season-bg);
+
+    border-radius: var(--radius-md);
+
+    font-weight: var(--font-weight-medium);
+  }
+
+
+  // ========================================
+  // BODY
+  // ========================================
 
   &__body {
     @include flex-column;
+
     gap: 10px;
+
+    min-width: 0;
   }
+
+  &__name {
+    margin: 0;
+
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+
+    color: var(--color-text);
+
+    word-break: break-word;
+  }
+
+
+  // ========================================
+  // FOOTER
+  // ========================================
 
   &__footer {
     @include flex-row;
+
     align-items: center;
     justify-content: space-between;
+
     gap: 5px;
   }
 
   &__buttons {
     @include flex-row;
+
     align-items: center;
+
     gap: 5px;
   }
 
   &__details {
+
     button {
       height: 35px;
+
       padding: var(--space-sm) var(--space-md);
     }
   }
-
 }
+
+
+// ========================================
+// WATCHED
+// ========================================
 
 .watched {
   background-color: var(--color-watched);
+
+  border-color: var(--color-primary);
 }
+
+
+// ========================================
+// TABLET
+// ========================================
+
+@media (max-width: 768px) {
+
+  .film-card {
+    padding: var(--space-sm);
+
+    &__header {
+      gap: 10px;
+
+      &-info {
+        gap: 5px;
+      }
+    }
+
+    &__series,
+    &__season,
+    &__type {
+      padding: 6px 8px;
+
+      font-size: var(--font-size-sm);
+    }
+
+    &__name {
+      font-size: var(--font-size-md);
+    }
+  }
+}
+
+
+// ========================================
+// MOBILE
+// ========================================
+
+@media (max-width: 480px) {
+
+  .film-card {
+
+    &__header {
+      align-items: flex-start;
+
+      &-info {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+    }
+
+    &__footer {
+      flex-wrap: wrap;
+    }
+
+    &__details {
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+

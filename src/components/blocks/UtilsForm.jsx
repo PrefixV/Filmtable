@@ -31,6 +31,9 @@ const UtilsForm = (props) => {
                 <option value={"byNotWatch"}>
                     Не просмотренные
                 </option>
+                <option value={"byFavourite"}>
+                    Избранные
+                </option>
             </Select>
             <Select className={"sort-field"} value={sortType} onChange={(e) => setSortType(e.target.value)}>
                 <option disabled={true}>

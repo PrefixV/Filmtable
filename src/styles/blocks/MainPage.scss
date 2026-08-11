@@ -1,72 +1,284 @@
 .main-page__wrapper {
   padding: var(--space-md);
+
   @include flex-column;
-  flex-wrap: wrap;
+
+  width: 100%;
 }
 
+
+// ========================================
+// DASHBOARD
+// ========================================
+
 .dashboard {
-  padding-top: var(--space-md);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(1, 1fr);
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
   gap: 20px;
+
+  padding-top: var(--space-md);
+
+  width: 100%;
+
+
+  // ========================================
+  // DASHBOARD ITEM
+  // ========================================
 
   &-item {
     @include flex-column;
+
     justify-content: space-between;
+
+    min-width: 0;
+    min-height: 130px;
+
+    padding: var(--space-md);
+
+    gap: 25px;
+
     background-color: rgb(255 255 255 / 0.05);
     backdrop-filter: blur(4px);
-    padding: var(--space-md);
-    border-radius: var(--radius-md);
-    gap: 25px;
+
     border: 1px solid var(--color-border);
-    min-width: 350px;
+    border-radius: var(--radius-md);
+
     box-shadow: var(--shadow-md);
-    transition: var(--transition-normal);
-    min-height: 130px;
-    animation: fade-in .40s ease;
+
+    transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            border-color 0.25s ease;
+
+    animation: fade-in 0.4s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+
+      box-shadow: var(--shadow-lg);
+
+      border-color: var(--color-primary);
+    }
   }
+
+
+  // ========================================
+  // HEADER
+  // ========================================
 
   &-header {
     @include flex-row;
+
     align-items: center;
+
     gap: 8px;
+
+    flex-wrap: wrap;
   }
+
+
+  // ========================================
+  // TAG
+  // ========================================
 
   &-tag {
+    width: fit-content;
+
     padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-full);
+
     background-color: var(--tag-movie-bg);
+
+    border-radius: var(--radius-full);
+
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
+
+    color: var(--color-text);
   }
 
+
+  // ========================================
+  // TITLE
+  // ========================================
+
   &-title {
+    margin: 0;
+
     font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+
+    color: var(--color-text);
   }
 }
+
+
+// ========================================
+// RATING
+// ========================================
 
 .dashboard-rating__wrapper {
   @include flex-column;
+
   gap: 30px;
+
+  width: 100%;
 }
+
+
+// ========================================
+// BEST FILM
+// ========================================
 
 .best-film__container {
   @include flex-between-row-center;
 
+  gap: var(--space-lg);
+
+  width: 100%;
+
   .best-film__diagram {
     @include flex-column;
+
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-full);
-    padding: var(--space-xl);
-    border: 5px solid var(--color-primary);
+
+    flex-shrink: 0;
+
     width: 100px;
     height: 100px;
+
+    padding: var(--space-xl);
+
+    border: 5px solid var(--color-primary);
+
+    border-radius: var(--radius-full);
+
     font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+
     animation: scale-in 0.7s ease;
   }
 
   .best-film__title {
+    margin: 0;
+
     font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+
+    color: var(--color-text);
+
+    word-break: break-word;
   }
 }
+
+
+// ========================================
+// LARGE TABLET
+// ========================================
+
+@media (max-width: 1100px) {
+
+  .dashboard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+// ========================================
+// TABLET
+// ========================================
+
+@media (max-width: 768px) {
+
+  .main-page__wrapper {
+    padding: var(--space-md);
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+
+    &-item {
+      min-height: 120px;
+    }
+  }
+
+  .best-film__container {
+
+    .best-film__title {
+      font-size: var(--font-size-xl);
+    }
+
+    .best-film__diagram {
+      width: 90px;
+      height: 90px;
+
+      padding: var(--space-lg);
+
+      font-size: var(--font-size-xl);
+    }
+  }
+}
+
+
+// ========================================
+// MOBILE
+// ========================================
+
+@media (max-width: 480px) {
+
+  .main-page__wrapper {
+    padding: var(--space-sm);
+  }
+
+  .dashboard {
+    padding-top: var(--space-sm);
+
+    gap: 12px;
+
+    &-item {
+      padding: var(--space-sm);
+
+      gap: 18px;
+
+      min-height: 110px;
+    }
+
+    &-header {
+      gap: 6px;
+    }
+
+    &-tag {
+      padding: 5px 10px;
+
+      font-size: 12px;
+    }
+
+    &-title {
+      font-size: var(--font-size-md);
+    }
+  }
+
+  .best-film__container {
+    gap: var(--space-md);
+
+    .best-film__diagram {
+      width: 75px;
+      height: 75px;
+
+      padding: var(--space-md);
+
+      border-width: 4px;
+
+      font-size: var(--font-size-lg);
+    }
+
+    .best-film__title {
+      font-size: var(--font-size-lg);
+    }
+  }
+}
+

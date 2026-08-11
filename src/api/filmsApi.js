@@ -87,3 +87,20 @@ export const getFilmById = async (filmId) => {
     const data = await response.json();
     return data;
 }
+
+export const editFilmFavourite = async (id, isFavourite) => {
+    const response = await fetch(`${API_URL}/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({isFilmFavourite: isFavourite})
+    })
+
+    if(!response.ok) {
+        throw new Error("Ошибка добавления в избранное")
+    }
+
+    const data = await response.json()
+    return data;
+}
