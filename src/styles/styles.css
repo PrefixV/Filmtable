@@ -678,6 +678,11 @@ textarea:disabled {
   font-weight: var(--font-weight-bold);
   animation: scale-in 0.7s ease;
 }
+.best-film__container .best-film {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+}
 .best-film__container .best-film__title {
   margin: 0;
   font-size: var(--font-size-2xl);

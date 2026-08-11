@@ -19,7 +19,9 @@ const DashboardBestFilm = (props) => {
             {bestFilm ? (
                 <DashboardItem tags={["#films", "#bestfilm"]}>
                     <div className="best-film__container">
-                        <p className="best-film__title">{bestFilm.filmName}</p>
+                        <div className="best-film">
+                            <p className="best-film__title">Лучший фильм: {bestFilm.filmName}</p>
+                        </div>
                         <p className="best-film__diagram">{bestFilm.filmRating}</p>
                     </div>
                 </DashboardItem>

@@ -161,6 +161,12 @@
     animation: scale-in 0.7s ease;
   }
 
+  .best-film {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+  }
+
   .best-film__title {
     margin: 0;
 
