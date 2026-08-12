@@ -36,6 +36,7 @@ const DashboardFilmsLength = (props) => {
 
     return (
         <DashboardItem tags={["#films", "#watched"]}>
+            <p>Всего фильмов: {films.length}</p>
             <BarChart width={"100%"} height={300} data={data}>
                 <CartesianGrid />
                 <XAxis dataKey="name" />

@@ -26,7 +26,27 @@ const AddFilmForm = (props) => {
         enableRating,
         setEnableRating,
         filmDetails,
-        setFilmDetails
+        setFilmDetails,
+        acting,
+        ambience,
+        audioEffects,
+        character,
+        setActing,
+        setAmbience,
+        setAudioEffects,
+        setCharacter,
+        setFilmPlot,
+        setOriginality,
+        setRewatchable,
+        setPersonalOpinion,
+        setVfxEffects,
+        setVoiceOver,
+        vfxEffects,
+        personalOpinion,
+        voiceOver,
+        originality,
+        rewatchable,
+        filmPlot,
     } = props;
 
 
@@ -81,21 +101,58 @@ const AddFilmForm = (props) => {
                         </>
                     ) : null}
                     {enableRating ? (
-                        <>
-                            <label htmlFor="film-rating">
-                                Рейтинг:
+                        <div className="film-rating__wrapper">
+                            <label htmlFor="film-plot">
+                                Сюжет фильма
+
+                            <Field id="film-plot" placeholder="Рейтинг сюжета фильма" value={filmPlot} onChange={(e) => setFilmPlot(e.target.value)}/>
                             </label>
-                            <Field type="number" placeholder="Рейтинг" value={filmRating} onChange={(e) => setFilmRating(e.target.value)} max="10" min="0" id="film-rating" step="0.01"/>
-                        </>
+                            <label htmlFor="film-acting">
+                                Актерская игра
+                            <Field id="film-acting" placeholder="Рейтинг актерской игры" value={acting} onChange={(e) => setActing(e.target.value)}/>
+                            </label>
+                            <label htmlFor="film-vfx">
+                                VFX Эффекты
+                            <Field id="film-vfx" placeholder="Рейтинг VFX эффектов" value={vfxEffects} onChange={(e) => setVfxEffects(e.target.value)}/>
+                            </label>
+                            <label htmlFor="film-audio">
+                                Звуковое сопровождение
+                            <Field id="film-audio" placeholder="Рейтинг звукового сопровождения" value={audioEffects} onChange={(e) => setAudioEffects(e.target.value)}/>
+                            </label>
+                            <label htmlFor="film-originality">
+                                Оригинальность
+                            <Field id="film-originality" placeholder="Рейтинг оригинальности" value={originality} onChange={(e) => setOriginality(e.target.value)}/>
+                            </label>
+                            <label htmlFor="film-rewatchable">
+                                Пересматриваемость
+                            <Field id="film-rewatchable" placeholder="Рейтинг пересматриваемости" value={rewatchable} onChange={(e) => setRewatchable(e.target.value)}/>
+                            </label>
+                            <label htmlFor="film-ambience">
+                                Создание атмосферы
+                            <Field id="film-ambience" placeholder="Рейтинг атмосферы" value={ambience} onChange={(e) => setAmbience(e.target.value)}/>
+                            </label>
+                            <label htmlFor="film-character">
+                                Развитие персонажей
+                            <Field id="film-character" placeholder="Рейтинг развития персонажей" value={character} onChange={(e) => setCharacter(e.target.value)}/>
+                            </label>
+                            <label htmlFor="film-voiceover">
+                                Озвучка
+                            <Field id="film-voiceover" placeholder="Рейтинг озвучки" value={voiceOver} onChange={(e) => setVoiceOver(e.target.value)}/>
+                            </label>
+                            <label htmlFor="film-opinion">
+                                Личная оценка
+                            <Field id="film-opinion" placeholder="Рейтинг личной оценки" value={personalOpinion} onChange={(e) => setPersonalOpinion(e.target.value)}/>
+                            </label>
+                        </div>
                     ) : null}
                     <label htmlFor="series-enable" className="checkbox">
-                        <Field type="checkbox" id="series-enable" checked={enableSeries} onChange={(e) => setEnableSeries(e.target.checked)}/>
+                        <Field type="checkbox" id="series-enable" checked={enableSeries} onChange={(e) => setEnableSeries(e.target.checked)} className="enable-button"/>
                         <span>
                             Включить серии
                         </span>
                     </label>
                     <label htmlFor="rating-enable" className="checkbox">
-                        <Field type="checkbox" id="rating-enable" checked={enableRating} onChange={(e) => setEnableRating(e.target.checked)}/>
+                        <Field type="checkbox" id="rating-enable" checked={enableRating} onChange={(e) => setEnableRating(e.target.checked)} className="enable-button"/>
                         <span>
                             Включить рейтинг
                         </span>

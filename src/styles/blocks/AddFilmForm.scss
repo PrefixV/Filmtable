@@ -3,19 +3,22 @@
 
   position: fixed;
   inset: 0;
-
-  padding: var(--space-lg);
-
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(8px);
-
   z-index: var(--z-modal);
+
+  padding: 20px;
+
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(10px);
+
+  overflow-y: auto;
 
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 
-  transition: opacity .25s ease, visibility .25s ease;
+  transition:
+          opacity 0.25s ease,
+          visibility 0.25s ease;
 }
 
 .modal-overlay--open {
@@ -28,28 +31,38 @@
   @include flex-column;
 
   width: 100%;
-  max-width: 500px;
+  max-width: 560px;
+  max-height: calc(100vh - 40px);
 
-  gap: var(--space-xl);
-
-  padding: var(--space-xl);
+  padding: 0;
 
   background: var(--color-bg-card);
-
   border: 1px solid var(--color-border);
-
   border-radius: var(--radius-lg);
 
   box-shadow: var(--shadow-lg);
 
-  animation: modal-show .10s ease;
+  overflow: hidden;
+
+  animation: modal-show 0.25s ease;
+
+  // ========================================
+  // HEADER
+  // ========================================
 
   &__header {
     @include flex-between-row-center;
 
-    gap: var(--space-lg);
+    flex-shrink: 0;
+
+    padding: var(--space-lg);
+
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-card);
 
     .add-film__title {
+      margin: 0;
+
       font-size: var(--font-size-xl);
       font-weight: var(--font-weight-bold);
       color: var(--color-text);
@@ -58,48 +71,233 @@
     .close-modal__button {
       @include flex-center-row;
 
-      width: 44px;
-      height: 44px;
+      width: 38px;
+      height: 38px;
 
       flex-shrink: 0;
+
+      padding: 0;
 
       border: 1px solid var(--color-border);
       border-radius: var(--radius-full);
 
       background: transparent;
+      color: var(--color-text-secondary);
 
       transition: var(--transition-fast);
 
       &:hover {
-        transform: rotate(90deg);
+        color: var(--color-text);
         background: var(--button-ghost-hover);
+        transform: rotate(90deg);
       }
     }
   }
 
+  // ========================================
+  // BODY
+  // ========================================
+
   &__body {
     @include flex-column;
 
-    gap: var(--space-md);
+    gap: var(--space-sm);
+    flex: 1 1 auto;
+    min-height: 0;
+
+    padding: var(--space-lg);
+
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-border);
+      border-radius: var(--radius-full);
+    }
+
+    // ========================================
+    // INPUTS / SELECT
+    // ========================================
+
+    input:not([type="checkbox"]),
+    select {
+      min-height: 50px;
+      height: 50px;
+      flex-shrink: 0;
+    }
+
+    textarea {
+      min-height: 100px;
+      height: 100px;
+
+      flex-shrink: 0;
+      resize: vertical;
+    }
+
+    // ========================================
+    // LABEL
+    // ========================================
+
+    label {
+      flex-shrink: 0;
+
+      margin-top: 4px;
+
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-bold);
+
+      color: var(--color-text);
+    }
+
+    // ========================================
+    // RATING
+    // ========================================
+
+    .film-rating__wrapper {
+      @include flex-column;
+
+      flex-shrink: 0;
+
+      gap: 12px;
+
+      margin-top: 8px;
+
+      padding: var(--space-md);
+
+      background: rgb(255 255 255 / 0.03);
+
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+
+      label {
+        @include flex-column;
+
+        flex-shrink: 0;
+
+        gap: 5px;
+
+        margin: 0;
+
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+
+        &:not(:last-child) {
+          padding-bottom: 10px;
+
+          border-bottom: 1px solid rgb(255 255 255 / 0.06);
+        }
+
+        input {
+          width: 100%;
+          height: 44px;
+          min-height: 44px;
+
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    // ========================================
+    // CHECKBOX
+    // ========================================
+
+    .checkbox {
+      @include flex-row;
+
+      flex-shrink: 0;
+
+      align-items: center;
+
+      gap: 10px;
+
+      width: 100%;
+      min-height: 46px;
+
+      margin-top: 6px;
+      padding: 10px 12px;
+
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+
+      cursor: pointer;
+
+      transition: var(--transition-fast);
+
+      &:hover {
+        background: rgb(255 255 255 / 0.04);
+      }
+
+      input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        padding: 0px 5px;
+        min-height: 18px;
+
+        flex: 0 0 18px;
+        flex-shrink: 0;
+
+        margin: 0;
+
+        accent-color: var(--color-primary);
+
+        cursor: pointer;
+      }
+
+      span {
+        flex: 1;
+
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+
+        color: var(--color-text);
+      }
+    }
   }
+
+  // ========================================
+  // FOOTER
+  // ========================================
 
   &__footer {
     @include flex-between-row-center;
 
+    flex-shrink: 0;
+
     gap: var(--space-md);
+
+    padding: var(--space-md) var(--space-lg);
+
+    border-top: 1px solid var(--color-border);
+
+    background: var(--color-bg-card);
 
     .add-film__button {
       min-width: 140px;
-      height: 44px;
+      height: 42px;
+
       padding: 0 var(--space-xl);
     }
   }
 }
 
+// ========================================
+// ANIMATION
+// ========================================
+
 @keyframes modal-show {
   from {
     opacity: 0;
-    transform: translateY(-20px) scale(.97);
+    transform: translateY(-15px) scale(0.98);
   }
 
   to {
@@ -108,24 +306,33 @@
   }
 }
 
-@media (max-width: 768px) {
+// ========================================
+// TABLET
+// ========================================
 
+@media (max-width: 768px) {
   .modal-overlay {
-    padding: var(--space-md);
+    padding: 12px;
   }
 
   .add-film {
     max-width: 100%;
-    padding: var(--space-lg);
+    max-height: calc(100vh - 24px);
 
     &__header {
+      padding: var(--space-md);
+
       .add-film__title {
         font-size: var(--font-size-lg);
       }
     }
 
+    &__body {
+      padding: var(--space-md);
+    }
+
     &__footer {
-      flex-direction: column;
+      padding: var(--space-md);
 
       .add-film__button {
         width: 100%;
@@ -133,3 +340,33 @@
     }
   }
 }
+
+// ========================================
+// MOBILE
+// ========================================
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 0;
+  }
+
+  .add-film {
+    width: 100%;
+    max-height: 100vh;
+
+    border-radius: 0;
+
+    &__header {
+      padding: var(--space-md);
+    }
+
+    &__body {
+      padding: var(--space-md);
+    }
+
+    &__footer {
+      padding: var(--space-md);
+    }
+  }
+}
+
