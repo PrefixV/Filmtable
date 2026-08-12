@@ -105,43 +105,43 @@ const AddFilmForm = (props) => {
                             <label htmlFor="film-plot">
                                 Сюжет фильма
 
-                            <Field id="film-plot" placeholder="Рейтинг сюжета фильма" value={filmPlot} onChange={(e) => setFilmPlot(e.target.value)}/>
+                            <Field type="number" id="film-plot" placeholder="Рейтинг сюжета фильма" value={filmPlot} onChange={(e) => setFilmPlot(e.target.value)} min="0" max="1" step="0.01"/>
                             </label>
                             <label htmlFor="film-acting">
                                 Актерская игра
-                            <Field id="film-acting" placeholder="Рейтинг актерской игры" value={acting} onChange={(e) => setActing(e.target.value)}/>
+                            <Field type="number" id="film-acting" placeholder="Рейтинг актерской игры" value={acting} onChange={(e) => setActing(e.target.value)} min="0" max="1" step="0.01"/>
                             </label>
                             <label htmlFor="film-vfx">
                                 VFX Эффекты
-                            <Field id="film-vfx" placeholder="Рейтинг VFX эффектов" value={vfxEffects} onChange={(e) => setVfxEffects(e.target.value)}/>
+                            <Field type="number" id="film-vfx" placeholder="Рейтинг VFX эффектов" value={vfxEffects} onChange={(e) => setVfxEffects(e.target.value)} min="0" max="1" step="0.01"/>
                             </label>
                             <label htmlFor="film-audio">
                                 Звуковое сопровождение
-                            <Field id="film-audio" placeholder="Рейтинг звукового сопровождения" value={audioEffects} onChange={(e) => setAudioEffects(e.target.value)}/>
+                            <Field type="number" id="film-audio" placeholder="Рейтинг звукового сопровождения" value={audioEffects} onChange={(e) => setAudioEffects(e.target.value)} min="0" max="1" step="0.01"/>
                             </label>
                             <label htmlFor="film-originality">
                                 Оригинальность
-                            <Field id="film-originality" placeholder="Рейтинг оригинальности" value={originality} onChange={(e) => setOriginality(e.target.value)}/>
+                            <Field type="number" id="film-originality" placeholder="Рейтинг оригинальности" value={originality} onChange={(e) => setOriginality(e.target.value)} min="0" max="1" step="0.01"/>
                             </label>
                             <label htmlFor="film-rewatchable">
                                 Пересматриваемость
-                            <Field id="film-rewatchable" placeholder="Рейтинг пересматриваемости" value={rewatchable} onChange={(e) => setRewatchable(e.target.value)}/>
+                            <Field type="number" id="film-rewatchable" placeholder="Рейтинг пересматриваемости" value={rewatchable} onChange={(e) => setRewatchable(e.target.value)} min="0" max="1"step="0.01"/>
                             </label>
                             <label htmlFor="film-ambience">
                                 Создание атмосферы
-                            <Field id="film-ambience" placeholder="Рейтинг атмосферы" value={ambience} onChange={(e) => setAmbience(e.target.value)}/>
+                            <Field type="number" id="film-ambience" placeholder="Рейтинг атмосферы" value={ambience} onChange={(e) => setAmbience(e.target.value)} min="0" max="1" step="0.01"/>
                             </label>
                             <label htmlFor="film-character">
                                 Развитие персонажей
-                            <Field id="film-character" placeholder="Рейтинг развития персонажей" value={character} onChange={(e) => setCharacter(e.target.value)}/>
+                            <Field type="number" id="film-character" placeholder="Рейтинг развития персонажей" value={character} onChange={(e) => setCharacter(e.target.value)} min="0" max="1" step="0.01"/>
                             </label>
                             <label htmlFor="film-voiceover">
                                 Озвучка
-                            <Field id="film-voiceover" placeholder="Рейтинг озвучки" value={voiceOver} onChange={(e) => setVoiceOver(e.target.value)}/>
+                            <Field type="number" id="film-voiceover" placeholder="Рейтинг озвучки" value={voiceOver} onChange={(e) => setVoiceOver(e.target.value)} min="0" max="1" step="0.01"/>
                             </label>
                             <label htmlFor="film-opinion">
                                 Личная оценка
-                            <Field id="film-opinion" placeholder="Рейтинг личной оценки" value={personalOpinion} onChange={(e) => setPersonalOpinion(e.target.value)}/>
+                            <Field type="number" id="film-opinion" placeholder="Рейтинг личной оценки" value={personalOpinion} onChange={(e) => setPersonalOpinion(e.target.value)} min="0" max="1" step="0.01"/>
                             </label>
                         </div>
                     ) : null}
